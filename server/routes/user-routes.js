@@ -38,9 +38,10 @@ router.get('/users/:username', (req, res) => {
     ExpressionAttributeValues: {
       ":user": req.params.username
     },
-    ProjectionExpression: "#th, #ca"
+    ProjectionExpression: "#th, #ca",
+    ScanIndexForward: false
   };
-
+ 
   dynamodb.query(params, (err, data) => {
     if (err) {
       console.error("Unable to query. Error:", JSON.stringify(err, null, 2));
@@ -50,7 +51,7 @@ router.get('/users/:username', (req, res) => {
       res.json(data.Items)
     }
   });
-});
+}); // closes the route for router.get(users/:username)
 
 // Create new user
 router.post('/users', (req, res) => {
@@ -62,6 +63,7 @@ router.post('/users', (req, res) => {
       "thought": req.body.thought
     }
   };
+  // database call 
   dynamodb.put(params, (err, data) => {
     if (err) {
       console.error("Unable to add item. Error JSON:", JSON.stringify(err, null, 2));

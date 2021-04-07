@@ -15,8 +15,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-sdk": "^2.878.0",
+    "aws-sdk": "^2.879.0",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "if-env": "^1.0.4",
     "jwt-decode": "^3.0.0",
     "multer": "^1.4.2",
@@ -26,5 +27,13 @@
   },
   "devDependencies": {
     "concurrently": "^5.1.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ifeasome/aws-thought.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ifeasome/aws-thought/issues"
+  },
+  "homepage": "https://github.com/ifeasome/aws-thought#readme"
 }
