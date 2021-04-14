@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-
 import ThoughtForm from '../components/ThoughtForm';
 import ThoughtList from '../components/ThoughtList';
 
 const AWS = require("aws-sdk");
 const awsConfig = {
-  region: "us-east-2",
-  endpoint: "http://localhost:8000",
+  region: "us-east-2"
 };
 
 AWS.config.update(awsConfig);
@@ -23,16 +21,19 @@ const Profile = props => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch(`/api/users/${userParam}`);
-      const data = await res.json();
-      // sort the array by createdAt property ordered by descending values
-      // const orderData = data.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1);
-      console.log(data);
-      setThoughts(data);
-      setIsLoaded(true);
-    }
+      try {
+        const res = await fetch(`/api/users/${userParam}`);
+        const data = await res.json();
+        console.log(data);
+        setThoughts([...data]);
+        setIsLoaded(true);
+      } catch (error) {
+        console.log(error);
+      }
+    };
     fetchData();
   }, []);
+ 
 
   return (
     <div>
