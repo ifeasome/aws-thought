@@ -4,7 +4,7 @@ import ThoughtForm from '../components/ThoughtForm';
 
 const Home = () => {
   const [isLoaded, setIsLoaded] = useState(false);
-  const [thoughts, setThoughts] = useState([]);
+  const [thoughts, setThoughts] = useState([{}]);
 
   // const loggedIn = Auth.loggedIn();
 
