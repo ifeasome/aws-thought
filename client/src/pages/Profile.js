@@ -32,7 +32,7 @@ const Profile = props => {
       }
     };
     fetchData();
-  }, []);
+  }, [userParam]);
  
 
   return (
