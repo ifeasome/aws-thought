@@ -10,7 +10,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await fetch('/api/users');
+      const res = await fetch('http://3.18.112.37/api/users');
       const data = await res.json();
       // sort the array by createdAt property ordered by descending values
       const orderData = data.sort((a, b) => (a.createdAt < b.createdAt) ? 1 : -1);
