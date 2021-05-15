@@ -22,7 +22,7 @@ const Profile = props => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await fetch(`/api/users/${userParam}`);
+        const res = await fetch(`http://3.18.112.37/api/users/${userParam}`);
         const data = await res.json();
         console.log(data);
         setThoughts([...data]);
